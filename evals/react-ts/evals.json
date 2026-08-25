@@ -89,6 +89,25 @@
         "className is a string (not styles.*)",
         "Does not add custom tooling when project utilities already exist"
       ]
+    },
+    {
+      "id": 9,
+      "prompt": "Update Box so the root div uses styles.Box merged with caller className via clsx, sets data-full to the strings true/false from a full boolean prop, and keeps CSS vars in dynamicStyle.",
+      "expected_output": "className destructured and merged with clsx; data-full is \"true\"|\"false\" string; dynamicStyle for CSS variables; no boolean data attribute toggle.",
+      "expectations": [
+        "className is destructured and merged with a project class util (e.g. clsx) onto the outer wrapper",
+        "data-* attributes use string values \"true\" or \"false\", not booleans",
+        "dynamicStyle typed React.CSSProperties is used for style / CSS variables"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Outer wrapper needs a base class but the project has no clsx/cn — wire className without destructuring it.",
+      "expected_output": "className left on the props spread (not destructured) when no merge utility exists.",
+      "expectations": [
+        "className is not destructured when no class-merge utility is available",
+        "className reaches the wrapper via spread (or equivalent pass-through)"
+      ]
     }
   ]
 }

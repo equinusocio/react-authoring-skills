@@ -141,10 +141,24 @@ const MyComponent: React.FC<MyComponentProps> = ({
 }
 ```
 
-## Dynamic `style`
+## className on the outer wrapper
 
-- When the component manipulates the `style` object: destructure it from props, build a `dynamicStyle` const typed as `React.CSSProperties`, then pass `dynamicStyle` to the element.
-- Decide `useMemo` (or not) for that object when inline style identity would cause excess re-renders.
+- If the outermost wrapper gets a CSS class: destructure `className` from props and apply it on that element.
+- If the project has a class-merge utility (`clsx`, `cn`, etc.), use it. Otherwise **do not** destructure `className` — let it pass through the spread.
+
+```tsx
+const MyComponent: React.FC<MyComponentProps> = ({
+  className,
+  ...otherProps
+}) => <div className={clsx(styles.MyComponent, className)} {...otherProps} />
+```
+
+## Dynamic `style` and custom attributes
+
+- Prefer controlling CSS via **custom HTML attributes** (`data-*`) and **`dynamicStyle`**.
+- When the component manipulates `style`: destructure it from props, build `dynamicStyle` as `React.CSSProperties`, pass it to the element.
+- Decide `useMemo` (or not) when inline style identity would cause excess re-renders.
+- Place `...style` first or last deliberately (defaults vs consumer overwrite).
 
 ```tsx
 const MyComponent: React.FC<MyComponentProps> = ({
@@ -156,11 +170,22 @@ const MyComponent: React.FC<MyComponentProps> = ({
   const dynamicStyle: React.CSSProperties = {
     ...style,
     ...(amount && !full && { '--vui-bleed-amount': `var(--space-${amount})` }),
-    // or ...style and the end to allow consumer overwrite
+    // or ...style at the end to allow consumer overwrite
   }
 
-  return <div style={dynamicStyle} {...otherProps} />
+  // [data-prop] is then used in css to customize style
+  return <div style={dynamicStyle} data-prop={prop1} {...otherProps} />
 }
+```
+
+## `data-*` attribute values
+
+- Custom HTML attributes (`data-*`) always receive the strings **`"true"`** or **`"false"`**.
+- Do **not** toggle attribute presence with booleans (`data-prop={bool}`).
+
+```tsx
+// data-prop becomes [data-prop="true"] or [data-prop="false"].
+<div style={dynamicStyle} data-prop={prop1} {...otherProps} />
 ```
 
 Folder and file placement: see [`filesystem.md`](filesystem.md).
@@ -176,7 +201,9 @@ Folder and file placement: see [`filesystem.md`](filesystem.md).
 - [ ] Markup: `&&` for null branch; flat ternary otherwise
 - [ ] Prefer `??` where applicable
 - [ ] CSS modules → `styles` import; plain CSS → side-effect import
+- [ ] Outer wrapper `className`: merge with project util, else leave on spread
 - [ ] Prefer project tools over custom/extra scripting
 - [ ] Performance considered (memo / Suspense / etc. when warranted)
 - [ ] No inline callbacks in JSX — named handlers in body
-- [ ] Manipulated `style` → `dynamicStyle: React.CSSProperties` (+ memo when needed)
+- [ ] Prefer `data-*` + `dynamicStyle: React.CSSProperties` (+ memo when needed)
+- [ ] `data-*` values are `"true"` / `"false"` strings, not booleans
