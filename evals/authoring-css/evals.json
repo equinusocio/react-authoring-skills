@@ -1,5 +1,5 @@
 {
-  "skill_name": "css",
+  "skill_name": "authoring-css",
   "evals": [
     {
       "id": 1,
@@ -75,7 +75,7 @@
       "prompt": "Write stack.module.css for a Stack wrapper. The consumer project has no CSS style guide or cursor rules about stylesheets.",
       "expected_output": "Applies this skill’s conventions without asking which guideline source to use.",
       "expectations": [
-        "Applies css skill rules by default when no consumer guidelines are found",
+        "Applies authoring-css skill rules by default when no consumer guidelines are found",
         "Does not block on a guidelines-choice question when none exist"
       ]
     }

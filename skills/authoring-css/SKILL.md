@@ -1,5 +1,5 @@
 ---
-name: css
+name: authoring-css
 description: >-
   Use when writing, editing, refactoring, or reviewing CSS — stylesheets, CSS
   modules, component styles, nesting, selectors, animations, @property, or
@@ -8,12 +8,12 @@ description: >-
 license: MIT
 metadata:
   author: equinusocio
-  version: "1.1.0"
+  version: "2.0.0"
 ---
 
 # CSS authoring
 
-Personal conventions for CSS. Load and follow this skill whenever the task writes or changes styles.
+Personal conventions for CSS. Follow this skill whenever the task writes or changes styles — auto-apply from the task; no explicit user load required.
 
 ## Hard contract
 
@@ -40,7 +40,7 @@ If the task mixes concerns, read every matching ref.
 
 ## Out of scope
 
-- React / TypeScript component structure (use the `react-ts` skill when present).
+- React / TypeScript component structure (use the `authoring-react` skill when present).
 - Preprocessor-only dialects (SCSS/Less mixins) unless converting to plain CSS.
 - Utility-first frameworks (Tailwind class strings) unless authoring real CSS alongside them.
 

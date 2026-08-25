@@ -1,5 +1,5 @@
 ---
-name: react-ts
+name: authoring-react
 description: >-
   Use when creating, editing, refactoring, or reviewing React or TypeScript UI
   code — components, hooks, JSX/TSX, props types, or .tsx/.jsx files — even if
@@ -8,12 +8,12 @@ description: >-
 license: MIT
 metadata:
   author: equinusocio
-  version: "1.4.0"
+  version: "2.0.0"
 ---
 
 # React + TypeScript authoring
 
-Personal conventions for React and TypeScript UI code. Load and follow this skill whenever the task writes or changes that code.
+Personal conventions for React and TypeScript UI code. Follow this skill whenever the task writes or changes that code — auto-apply from the task; no explicit user load required.
 
 ## Hard contract
 
@@ -42,7 +42,7 @@ If the task mixes concerns, read every matching ref.
 ## Out of scope
 
 - Non-React TypeScript (Node scripts, server-only modules with no UI).
-- CSS/styling authoring (use the `css` skill when present).
+- CSS/styling authoring (use the `authoring-css` skill when present).
 - Non-React frameworks (Vue, Angular, Svelte templates).
 
 Those do not waive this skill when the same task also touches React/TSX.

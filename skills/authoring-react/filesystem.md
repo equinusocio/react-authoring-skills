@@ -6,7 +6,7 @@ Apply when scaffolding or reorganizing React component files and folders.
 
 - Each component typically has **its own kebab-case folder** with scoped files, plus co-located subcomponents that belong to the same unit and are exported from the same `index`.
 - Include **`index.ts`** that exports the component `.tsx` and any props types as needed.
-- The folder may also hold the related CSS (`.css` or `.module.css`) depending on the project. For styling rules, use the `css` skill when present.
+- The folder may also hold the related CSS (`.css` or `.module.css`) depending on the project. For styling rules, use the `authoring-css` skill when present.
 
 ```
 /my-component

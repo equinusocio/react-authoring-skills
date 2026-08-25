@@ -60,7 +60,7 @@
     "should_trigger": false
   },
   {
-    "query": "Bump the react-ts skill version in package metadata and changelog.",
+    "query": "Bump the authoring-react skill version in package metadata and changelog.",
     "should_trigger": false
   },
   {

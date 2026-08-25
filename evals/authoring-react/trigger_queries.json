@@ -72,7 +72,7 @@
     "should_trigger": false
   },
   {
-    "query": "Bump the css skill version in package metadata and changelog.",
+    "query": "Bump the authoring-css skill version in package metadata and changelog.",
     "should_trigger": false
   },
   {

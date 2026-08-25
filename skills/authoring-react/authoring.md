@@ -114,7 +114,7 @@ import './my-component.css'
 const MyComponent: React.FC = () => <div className="MyComponent" />
 ```
 
-For styling conventions, use the `css` skill when present.
+For styling conventions, use the `authoring-css` skill when present.
 
 ## Prefer project tools
 

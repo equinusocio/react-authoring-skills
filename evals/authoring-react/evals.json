@@ -1,5 +1,5 @@
 {
-  "skill_name": "react-ts",
+  "skill_name": "authoring-react",
   "evals": [
     {
       "id": 1,
@@ -124,7 +124,7 @@
       "prompt": "Create a simple Badge TSX component. The consumer project has no React style guide, AGENTS.md, or cursor rules about components.",
       "expected_output": "Applies this skill’s conventions without asking which guideline source to use.",
       "expectations": [
-        "Applies react-ts skill rules by default when no consumer guidelines are found",
+        "Applies authoring-react skill rules by default when no consumer guidelines are found",
         "Does not block on a guidelines-choice question when none exist"
       ]
     }
