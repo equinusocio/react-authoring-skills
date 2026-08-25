@@ -181,7 +181,7 @@ const MyComponent: React.FC<MyComponentProps> = ({
 ## `data-*` attribute values
 
 - Custom HTML attributes (`data-*`) always receive the strings **`"true"`** or **`"false"`**.
-- Do **not** toggle attribute presence with booleans (`data-prop={bool}`).
+- Do **not** toggle attribute presence with booleans (`<div {...(bool && { "data-prop": bool })} />`).
 
 ```tsx
 // data-prop becomes [data-prop="true"] or [data-prop="false"].
