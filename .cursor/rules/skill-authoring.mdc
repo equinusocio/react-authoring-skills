@@ -1,0 +1,38 @@
+---
+description: Agent Skills format + evals for publishable personal skills in this repo
+globs: skills/**/*,evals/**/*
+alwaysApply: false
+---
+
+# Publishable skills authoring
+
+Consumer skills live under **`skills/<name>/`** in this repo. Distribute via `npx skills add equinusocio/react-authoring-skills`.
+
+Editing skills? Follow Agent Skills checklist below.
+
+## Required flow
+
+1. Follow [agentskills.io](https://agentskills.io/skill-creation/quickstart): thin hub, trigger-only description, progressive disclosure into sibling refs.
+2. **RED before GREEN:** write or refresh `evals/<skill>/trigger_queries.json` and `evals.json` **before** editing `SKILL.md`.
+3. Hub `description`: starts `Use when…`, ≤ 1024 chars, **triggers/symptoms only** — no workflow summary (see [optimizing-descriptions](https://agentskills.io/skill-creation/optimizing-descriptions)).
+4. Hub frontmatter: `name`, `description`, then `license: MIT` and `metadata` (`author`, `version` semver string).
+5. Hub body ~80–120 lines: router + hard contract + out of scope; refs are load-on-demand (“Read `foo.md` when …”).
+6. Same change: update [README.md](README.md) Skills table when name/path/trigger changes; discipline skills need red-flag + rationalization tables.
+7. Evals stay under `evals/<skill>/` — **never** under `skills/`.
+
+## Before done
+
+- Diff description against `trigger_queries.json` (true triggers vs near-miss false).
+- Confirm hub frontmatter has `license: MIT` and `metadata.author` / `metadata.version`.
+- Confirm README install still cites `npx skills add equinusocio/react-authoring-skills`.
+- Keep hub thin; put deep guidance in sibling `.md` refs under the skill folder.
+
+## Red flags — STOP
+
+- “Skip evals — small hub tweak”
+- “Put evals next to SKILL.md under `skills/`”
+- “Description can summarize the workflow — agents read the body anyway”
+- “README Skills table update later”
+- “Document npm package / tarball install”
+
+**All of these mean: complete the checklist in this change.**
