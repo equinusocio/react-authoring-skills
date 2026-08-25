@@ -1,18 +1,44 @@
 ---
 name: css
 description: >-
-  Syntax preferences and best practices for authoring CSS.
-  Use when writing or editing stylesheets, CSS modules, or component styles.
+  Use when writing, editing, refactoring, or reviewing CSS — stylesheets, CSS
+  modules, component styles, nesting, selectors, animations, @property, or
+  .css/.module.css files — even if the user does not name this skill. Use
+  whenever the task writes or changes styles. Do not skip for convenience.
+license: MIT
+metadata:
+  author: equinusocio
+  version: "1.0.0"
 ---
 
-# CSS
+# CSS authoring
 
-Personal authoring conventions for CSS.
+Personal conventions for CSS. Load and follow this skill whenever the task writes or changes styles.
 
-## Instructions
+## Hard contract
 
-<!-- Replace with your preferences: naming, cascade, tokens, layout, specificity, etc. -->
+1. Apply these conventions on **every** CSS change (new files, edits, refactors, reviews that produce styles).
+2. **No opt-out** for convenience, “generic style”, or habit.
+3. **Force majeure only** — skip or bend a rule when:
+   - the user explicitly overrides it for this task, or
+   - following it would break the project’s established CSS pattern or fail to build.
 
-1. Prefer predictable selectors and low specificity.
-2. Use design tokens / custom properties when the project has them.
-3. Match existing project style organization (modules, layers, BEM, etc.).
+When force majeure applies, follow the local project pattern for that conflict only; keep every other rule.
+
+## Router
+
+Read sibling refs **before** writing matching styles:
+
+| When | Read |
+| --- | --- |
+| Creating or editing stylesheets / CSS modules / component CSS (classes, nesting, selectors, motion, `@property`) | [`authoring.md`](authoring.md) |
+
+If the task mixes concerns, read every matching ref.
+
+## Out of scope
+
+- React / TypeScript component structure (use the `react-ts` skill when present).
+- Preprocessor-only dialects (SCSS/Less mixins) unless converting to plain CSS.
+- Utility-first frameworks (Tailwind class strings) unless authoring real CSS alongside them.
+
+Those do not waive this skill when the same task also touches CSS.

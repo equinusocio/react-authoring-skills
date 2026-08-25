@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Add styles for the Stack component in stack.module.css.",
+    "should_trigger": true
+  },
+  {
+    "query": "Rewrite button.css with native nesting and a root .Button class.",
+    "should_trigger": true
+  },
+  {
+    "query": "Animate this card’s accent color with a registered custom property.",
+    "should_trigger": true
+  },
+  {
+    "query": "Tighten the selectors in styles/panel.css — use :has and :is where it helps.",
+    "should_trigger": true
+  },
+  {
+    "query": "Convert this SCSS nesting to plain CSS modules for Modal.",
+    "should_trigger": true
+  },
+  {
+    "query": "Add a transition on the drawer open state — keep it on transform if possible.",
+    "should_trigger": true
+  },
+  {
+    "query": "Fix the CSS class names in header.module.css so they match our naming rules.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create my-component.props.css for the @property registrations next to the module.",
+    "should_trigger": true
+  },
+  {
+    "query": "Replace shorthand margin with longhand in card.css and comment any long shorthands.",
+    "should_trigger": true
+  },
+  {
+    "query": "Style the Content child inside .Stack without a Stack_Content prefix.",
+    "should_trigger": true
+  },
+  {
+    "query": "Add a Button React component in src/components/Button.tsx with typed props.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a Node script in scripts/migrate.ts that reads JSON and writes to Postgres.",
+    "should_trigger": false
+  },
+  {
+    "query": "Update the README install section for this skills package.",
+    "should_trigger": false
+  },
+  {
+    "query": "Rewrite this Vue SFC so the script setup uses defineProps correctly.",
+    "should_trigger": false
+  },
+  {
+    "query": "Generate an OpenAPI schema for the /users endpoint.",
+    "should_trigger": false
+  },
+  {
+    "query": "Bump the react-ts skill version in package metadata and changelog.",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix the Express middleware typing in server/middleware/auth.ts — no UI involved.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create a useDebounce hook in hooks/useDebounce.ts for our React form.",
+    "should_trigger": false
+  },
+  {
+    "query": "Translate this Angular component template bindings to the new control-flow syntax.",
+    "should_trigger": false
+  },
+  {
+    "query": "Scaffold the MyPanel folder layout and index.ts re-exports only — no CSS yet.",
+    "should_trigger": false
+  }
+]
