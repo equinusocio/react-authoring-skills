@@ -11,12 +11,12 @@ const MyComponent = () => (
   // ...
 )
 
-const MyComponent = () => {
+export const MyComponent = () => {
   // ...
 }
 ```
 
-- Every component is typed with **`React.FC<>`** or **`FC<>`** (match the project’s import pattern), with props passed to the generic:
+- Every component is typed with **`React.FC<>`** or **`FC<>`** (match the project’s import pattern) when they have props, with props passed to the generic. Otherwhise just `React.FC` or `FC`
 
 ```tsx
 const MyComponent: React.FC<MyComponentProps> = () => (
@@ -97,6 +97,72 @@ return (
 const myConst = condition ?? condition2
 ```
 
+## CSS imports
+
+- CSS modules: import as `styles`.
+- Plain CSS: side-effect import (no binding).
+
+```tsx
+import styles from './my-component.module.css'
+
+const MyComponent: React.FC = () => <div className={styles.MyClass} />
+```
+
+```tsx
+import './my-component.css'
+
+const MyComponent: React.FC = () => <div className="MyComponent" />
+```
+
+For styling conventions, use the `css` skill when present.
+
+## Prefer project tools
+
+- Avoid custom code or excessive scripting when project tools already cover the need and can shrink the code.
+
+## Performance
+
+- Keep React code performant for re-renders, loading, and data fetching.
+- Evaluate when to use `useMemo`, `useCallback`, `React.memo`, `useOptimistic`, `Suspense`, and similar — apply them when they reduce real cost, not by default everywhere. Prioritize performant UX (reactiveness) and optimistic loadings.
+
+## Event handlers
+
+- Never write callback functions inline in the markup.
+- Declare them in the component body as **named arrow functions** with relevant memoizing and deps when necessary.
+
+```tsx
+const MyComponent: React.FC<MyComponentProps> = ({
+  prop1 = 'default',
+  ...otherProps
+}) => {
+  const handleClick = () => {}
+
+  return <div onClick={handleClick} {...otherProps} />
+}
+```
+
+## Dynamic `style`
+
+- When the component manipulates the `style` object: destructure it from props, build a `dynamicStyle` const typed as `React.CSSProperties`, then pass `dynamicStyle` to the element.
+- Decide `useMemo` (or not) for that object when inline style identity would cause excess re-renders.
+
+```tsx
+const MyComponent: React.FC<MyComponentProps> = ({
+  style,
+  amount,
+  full,
+  ...otherProps
+}) => {
+  const dynamicStyle: React.CSSProperties = {
+    ...style,
+    ...(amount && !full && { '--vui-bleed-amount': `var(--space-${amount})` }),
+    // or ...style and the end to allow consumer overwrite
+  }
+
+  return <div style={dynamicStyle} {...otherProps} />
+}
+```
+
 Folder and file placement: see [`filesystem.md`](filesystem.md).
 
 ## Checklist
@@ -109,3 +175,8 @@ Folder and file placement: see [`filesystem.md`](filesystem.md).
 - [ ] Defaults in param list when possible
 - [ ] Markup: `&&` for null branch; flat ternary otherwise
 - [ ] Prefer `??` where applicable
+- [ ] CSS modules → `styles` import; plain CSS → side-effect import
+- [ ] Prefer project tools over custom/extra scripting
+- [ ] Performance considered (memo / Suspense / etc. when warranted)
+- [ ] No inline callbacks in JSX — named handlers in body
+- [ ] Manipulated `style` → `dynamicStyle: React.CSSProperties` (+ memo when needed)

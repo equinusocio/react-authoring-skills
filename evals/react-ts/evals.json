@@ -67,6 +67,28 @@
         "Main file is my-component.tsx; subcomponent is co-located and exported from the same index",
         "CSS file is scoped beside the component (.css or .module.css per project) when styles are added"
       ]
+    },
+    {
+      "id": 7,
+      "prompt": "Write a Card that imports its CSS module as styles, uses a named handleClick (not inline) for onClick, and merges a CSS variable into style via a dynamicStyle React.CSSProperties object after destructuring style from props.",
+      "expected_output": "import styles from module css; named handler in body; style destructured; dynamicStyle typed CSSProperties passed to the element; no inline arrow in JSX.",
+      "expectations": [
+        "CSS module imported as styles (default import)",
+        "className uses styles.*",
+        "onClick (or similar) uses a named arrow in the component body, not an inline function in JSX",
+        "style is destructured from props",
+        "dynamicStyle is typed React.CSSProperties and passed to style={dynamicStyle}"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Add a plain (non-module) stylesheet beside the component and wire className as a string; avoid inventing a custom CSS-in-JS helper if the project already has a class utility.",
+      "expected_output": "Side-effect CSS import; string className; prefer existing project tooling over custom scripting.",
+      "expectations": [
+        "Plain CSS uses side-effect import (no styles binding)",
+        "className is a string (not styles.*)",
+        "Does not add custom tooling when project utilities already exist"
+      ]
     }
   ]
 }
