@@ -11,7 +11,7 @@ npx skills add equinusocio/react-authoring-skills
 Install one skill:
 
 ```bash
-npx skills add equinusocio/react-authoring-skills --skill react-components
+npx skills add equinusocio/react-authoring-skills --skill react-ts
 npx skills add equinusocio/react-authoring-skills --skill css
 ```
 
@@ -31,15 +31,19 @@ npx skills add ./path/to/react-authoring-skills
 
 | Skill | Path | Description |
 | --- | --- | --- |
-| `react-components` | [`skills/react-components`](./skills/react-components) | React component authoring preferences |
+| `react-ts` | [`skills/react-ts`](./skills/react-ts) | React + TypeScript authoring conventions (load when writing React/TS UI) |
 | `css` | [`skills/css`](./skills/css) | CSS authoring preferences |
 
 ## Layout
 
 ```
 skills/
-  react-components/SKILL.md
+  react-ts/SKILL.md
+  react-ts/authoring.md
+  react-ts/filesystem.md
   css/SKILL.md
+evals/
+  react-ts/
 ```
 
-Each skill is a folder with a `SKILL.md` (YAML frontmatter + instructions). Add more under `skills/<name>/`.
+Each skill is a folder with a `SKILL.md` (YAML frontmatter + instructions) and optional sibling refs. Add more under `skills/<name>/`.

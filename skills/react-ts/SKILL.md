@@ -1,18 +1,45 @@
 ---
 name: react-ts
 description: >-
-  Syntax preferences and best practices for authoring React components and typescript.
-  Use when creating, editing, or refactoring React components, hooks, or JSX.
+  Use when creating, editing, refactoring, or reviewing React or TypeScript UI
+  code — components, hooks, JSX/TSX, props types, or .tsx/.jsx files — even if
+  the user does not name this skill. Use whenever the task writes or changes
+  React/TypeScript for the UI. Do not skip for convenience.
+license: MIT
+metadata:
+  author: equinusocio
+  version: "1.1.0"
 ---
 
-# React components
+# React + TypeScript authoring
 
-Personal authoring conventions for React components.
+Personal conventions for React and TypeScript UI code. Load and follow this skill whenever the task writes or changes that code.
 
-## Instructions
+## Hard contract
 
-<!-- Replace with your preferences: file layout, naming, hooks patterns, props, etc. -->
+1. Apply these conventions on **every** React/TypeScript UI change (new files, edits, refactors, reviews that produce code).
+2. **No opt-out** for convenience, “generic style”, or habit.
+3. **Force majeure only** — skip or bend a rule when:
+   - the user explicitly overrides it for this task, or
+   - following it would break the project’s established import/type pattern or fail to compile.
 
-1. Prefer clear component boundaries and readable JSX.
-2. Follow project TypeScript and React conventions when present.
-3. Keep components focused; extract when complexity grows.
+When force majeure applies, follow the local project pattern for that conflict only; keep every other rule.
+
+## Router
+
+Read sibling refs **before** writing matching code:
+
+| When | Read |
+| --- | --- |
+| Creating or editing React components (JSX/TSX, props, wrappers) | [`authoring.md`](authoring.md) |
+| Scaffolding or moving component folders/files (`index.ts`, kebab folders, co-located css/subcomponents) | [`filesystem.md`](filesystem.md) |
+
+If the task mixes concerns, read every matching ref.
+
+## Out of scope
+
+- Non-React TypeScript (Node scripts, server-only modules with no UI).
+- CSS/styling authoring (use the `css` skill when present).
+- Non-React frameworks (Vue, Angular, Svelte templates).
+
+Those do not waive this skill when the same task also touches React/TSX.

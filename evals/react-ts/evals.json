@@ -1,0 +1,72 @@
+{
+  "skill_name": "react-ts",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a React TypeScript component MyPanel that wraps a div, accepts an optional title string (default \"Panel\"), and spreads remaining div props onto the outer div.",
+      "expected_output": "A named const arrow component typed with React.FC (or FC) and MyPanelProps extending ComponentPropsWithRef<'div'>, with defaults in the param list and residual props spread on the wrapper.",
+      "expectations": [
+        "Component is a named const arrow function (not function declaration or default-only anonymous)",
+        "Component is annotated with React.FC<MyPanelProps> or FC<MyPanelProps>",
+        "MyPanelProps exists and extends React.ComponentPropsWithRef<'div'> (or ComponentPropsWithoutRef if ref is intentionally omitted)",
+        "Props are destructured; unused props are spread onto the outer div",
+        "title default is set in the destructuring parameter list"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write a reusable IconButton that wraps a button element, takes a required label, and forwards ref plus other button props for use inside other components.",
+      "expected_output": "Exported IconButtonProps extending ComponentPropsWithRef<'button'>, named const FC component, label destructured, rest spread on button; ref passed as a normal prop (React 19).",
+      "expectations": [
+        "export type IconButtonProps (or equivalent exported props type) for reuse/inference",
+        "Props type uses ComponentPropsWithRef<'button'>",
+        "const IconButton: React.FC<...> or FC<...> named arrow function",
+        "label is destructured; remaining props spread onto <button>",
+        "No legacy React.forwardRef wrapper required; ref treated as a prop"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Add a thin wrapper OtherCard around an existing OtherComponent, typing props from typeof OtherComponent and adding an optional accent boolean.",
+      "expected_output": "Props type based on ComponentPropsWithRef<typeof OtherComponent> intersected with { accent?: boolean }, named FC const, destructure accent and spread the rest onto OtherComponent.",
+      "expectations": [
+        "Props type uses ComponentPropsWithRef<typeof OtherComponent> (or WithoutRef if appropriate)",
+        "Named const arrow component with FC annotation",
+        "accent destructured; other props spread to OtherComponent",
+        "Spread order chosen deliberately relative to defaults/overrides"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Implement Badge as const Badge = () => … with className default \"badge\" merged so caller className can override the default when spread after.",
+      "expected_output": "FC-typed named const; className default in params; spread positioned so caller props override defaults where intended.",
+      "expectations": [
+        "Named const arrow function with React.FC or FC",
+        "Default for className (or equivalent) in parameter destructuring",
+        "Spread placement documents override vs default behavior"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "In a component return, show a hint paragraph only when showHint is true (otherwise render nothing), and when mode is 'text' show a <p>, otherwise a <figure>. Also set label from title ?? fallbackTitle.",
+      "expected_output": "Uses && for the null branch, a single non-nested ternary for the two-element branch, and ?? for the label.",
+      "expectations": [
+        "Conditional that renders null/nothing uses &&, not a ternary with null",
+        "Two-way element choice uses a non-nested ternary",
+        "No nested ternaries in JSX",
+        "Nullish coalescing (??) used for title/fallbackTitle (not || unless force majeure)"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Scaffold a new MyComponent under components/ with its own kebab-case folder, index re-exports, tsx file, optional module css, and a MyComponentSubcomponent co-located and exported from the same index.",
+      "expected_output": "Folder my-component/ with index.ts, my-component.tsx, my-component-subcomponent.tsx, optional my-component.module.css; index exports component and props as needed.",
+      "expectations": [
+        "Component lives in a kebab-case folder matching the component",
+        "index.ts re-exports the component (and props type when exported)",
+        "Main file is my-component.tsx; subcomponent is co-located and exported from the same index",
+        "CSS file is scoped beside the component (.css or .module.css per project) when styles are added"
+      ]
+    }
+  ]
+}

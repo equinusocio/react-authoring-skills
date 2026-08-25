@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Add a Button component in src/components/Button.tsx that accepts a label and onClick.",
+    "should_trigger": true
+  },
+  {
+    "query": "Refactor ProfileCard to forward className and the rest of the div props.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create a useDebounce hook in hooks/useDebounce.ts for our React form.",
+    "should_trigger": true
+  },
+  {
+    "query": "Fix the TypeScript errors in App.tsx — the props type for Modal is wrong.",
+    "should_trigger": true
+  },
+  {
+    "query": "Convert this class component to a functional component with typed props.",
+    "should_trigger": true
+  },
+  {
+    "query": "Can you sketch a small React card with title and children for the marketing page?",
+    "should_trigger": true
+  },
+  {
+    "query": "Update the JSX in Header so the nav links use the Link component from react-router.",
+    "should_trigger": true
+  },
+  {
+    "query": "My boss wants a reusable Input that wraps a native input and spreads leftover props — write it in TSX.",
+    "should_trigger": true
+  },
+  {
+    "query": "Extract the list item into its own component file under components/.",
+    "should_trigger": true
+  },
+  {
+    "query": "Add default value for size prop on Avatar without breaking existing call sites.",
+    "should_trigger": true
+  },
+  {
+    "query": "Tighten the selectors in styles/button.css — specificity is too high.",
+    "should_trigger": false
+  },
+  {
+    "query": "Rewrite this Vue SFC so the script setup uses defineProps correctly.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a Node script in scripts/migrate.ts that reads JSON and writes to Postgres.",
+    "should_trigger": false
+  },
+  {
+    "query": "Update the README install section for this skills package.",
+    "should_trigger": false
+  },
+  {
+    "query": "Add a Tailwind utility class for the hero background gradient in globals.css.",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix the Express middleware typing in server/middleware/auth.ts — no UI involved.",
+    "should_trigger": false
+  },
+  {
+    "query": "Generate an OpenAPI schema for the /users endpoint.",
+    "should_trigger": false
+  },
+  {
+    "query": "Translate this Angular component template bindings to the new control-flow syntax.",
+    "should_trigger": false
+  },
+  {
+    "query": "Bump the css skill version in package metadata and changelog.",
+    "should_trigger": false
+  },
+  {
+    "query": "Clean up the SCSS mixins in _typography.scss for the design system.",
+    "should_trigger": false
+  }
+]
