@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: equinusocio
-  version: "1.3.0"
+  version: "1.4.0"
 ---
 
 # React + TypeScript authoring
@@ -19,7 +19,10 @@ Personal conventions for React and TypeScript UI code. Load and follow this skil
 
 1. Apply these conventions on **every** React/TypeScript UI change (new files, edits, refactors, reviews that produce code).
 2. **No opt-out** for convenience, “generic style”, or habit.
-3. **Force majeure only** — skip or bend a rule when:
+3. **Consumer project guidelines** — before writing, check whether the consumer project already documents guidelines, best practices, style guides, lint/format conventions, or similar for this work:
+   - **None found** → apply this skill’s rules.
+   - **Found** → do **not** silently pick. Ask with structured UI (`AskQuestion` when available; otherwise clear numbered options) which source to follow for this task: this skill, the project guidelines, or a stated mix. Wait for the answer before coding.
+4. **Force majeure only** — skip or bend a rule when:
    - the user explicitly overrides it for this task, or
    - following it would break the project’s established import/type pattern or fail to compile.
 

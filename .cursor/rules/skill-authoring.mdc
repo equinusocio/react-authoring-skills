@@ -17,8 +17,9 @@ Editing skills? Follow Agent Skills checklist below.
 3. Hub `description`: starts `Use when…`, ≤ 1024 chars, **triggers/symptoms only** — no workflow summary (see [optimizing-descriptions](https://agentskills.io/skill-creation/optimizing-descriptions)).
 4. Hub frontmatter: `name`, `description`, then `license: MIT` and `metadata` (`author`, `version` semver string).
 5. Hub body ~80–120 lines: router + hard contract + out of scope; refs are load-on-demand (“Read `foo.md` when …”).
-6. Same change: update [README.md](README.md) Skills table when name/path/trigger changes; discipline skills need red-flag + rationalization tables.
-7. Evals stay under `evals/<skill>/` — **never** under `skills/`.
+6. **Hard contract must include consumer-guidelines gate** (same wording across skills): default apply this skill; if the consumer project already documents guidelines / best practices / style guides / lint-format conventions for the work, ask with structured UI (`AskQuestion` when available; else numbered options) which source to follow for the task — this skill, project guidelines, or a stated mix — and wait before coding.
+7. Same change: update [README.md](README.md) Skills table when name/path/trigger changes; discipline skills need red-flag + rationalization tables.
+8. Evals stay under `evals/<skill>/` — **never** under `skills/`.
 
 ## Before done
 
@@ -34,5 +35,6 @@ Editing skills? Follow Agent Skills checklist below.
 - “Description can summarize the workflow — agents read the body anyway”
 - “README Skills table update later”
 - “Document npm package / tarball install”
+- “Skip consumer-guidelines gate — force majeure covers it”
 
 **All of these mean: complete the checklist in this change.**

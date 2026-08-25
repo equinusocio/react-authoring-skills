@@ -108,6 +108,25 @@
         "className is not destructured when no class-merge utility is available",
         "className reaches the wrapper via spread (or equivalent pass-through)"
       ]
+    },
+    {
+      "id": 11,
+      "prompt": "Add a Panel component in TSX. The consumer repo has CONTRIBUTING.md and .cursor/rules that define React component conventions different from this skill. No user override yet.",
+      "expected_output": "Before writing code, agent asks with structured UI (AskQuestion or numbered options) whether to follow this skill, the project guidelines, or a mix; does not silently choose.",
+      "expectations": [
+        "Detects consumer project guidelines exist for React/TS authoring",
+        "Asks which source to follow before coding (AskQuestion UI or clear numbered options)",
+        "Does not silently apply only this skill or only project rules when both exist"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Create a simple Badge TSX component. The consumer project has no React style guide, AGENTS.md, or cursor rules about components.",
+      "expected_output": "Applies this skill’s conventions without asking which guideline source to use.",
+      "expectations": [
+        "Applies react-ts skill rules by default when no consumer guidelines are found",
+        "Does not block on a guidelines-choice question when none exist"
+      ]
     }
   ]
 }

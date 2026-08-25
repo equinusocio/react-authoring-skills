@@ -59,6 +59,25 @@
         "Component .css imports the .props.css file",
         "Defaults that cannot be set in @property (e.g. var()) are assigned on the component root class"
       ]
+    },
+    {
+      "id": 7,
+      "prompt": "Add panel.module.css. The consumer repo has STYLEGUIDE.md and eslint-plugin-css rules that conflict with this skill. No user override yet.",
+      "expected_output": "Before writing styles, agent asks with structured UI (AskQuestion or numbered options) whether to follow this skill, the project guidelines, or a mix; does not silently choose.",
+      "expectations": [
+        "Detects consumer project guidelines exist for CSS authoring",
+        "Asks which source to follow before coding (AskQuestion UI or clear numbered options)",
+        "Does not silently apply only this skill or only project rules when both exist"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Write stack.module.css for a Stack wrapper. The consumer project has no CSS style guide or cursor rules about stylesheets.",
+      "expected_output": "Applies this skill’s conventions without asking which guideline source to use.",
+      "expectations": [
+        "Applies css skill rules by default when no consumer guidelines are found",
+        "Does not block on a guidelines-choice question when none exist"
+      ]
     }
   ]
 }
