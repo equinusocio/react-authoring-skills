@@ -40,6 +40,14 @@
     "should_trigger": true
   },
   {
+    "query": "Add a hardcoded OKLCH gradient on the Card hero background in card.module.css.",
+    "should_trigger": true
+  },
+  {
+    "query": "Derive a translucent text color from var(--my-color) with relative colors — no color-mix.",
+    "should_trigger": true
+  },
+  {
     "query": "Add a Button React component in src/components/Button.tsx with typed props.",
     "should_trigger": false
   },

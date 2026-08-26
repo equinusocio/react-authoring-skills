@@ -78,6 +78,16 @@
         "Applies authoring-css skill rules by default when no consumer guidelines are found",
         "Does not block on a guidelines-choice question when none exist"
       ]
+    },
+    {
+      "id": 9,
+      "prompt": "Style a Card hero with a hardcoded multi-stop gradient (no design token for the stops). Also derive a muted text color from var(--my-color) by raising chroma and setting 20% alpha.",
+      "expected_output": "Hardcoded gradient stops in OKLCH or OKLAB (not hex/rgb/hsl); derived color uses relative color syntax (oklch(from …) / oklab(from …)), not color-mix().",
+      "expectations": [
+        "Hardcoded gradient colors use OKLCH or OKLAB (HDR formats preferred for interpolation)",
+        "Does not use color-mix() to derive or adjust transparency from a variable or hardcoded color",
+        "Uses relative colors (e.g. oklch(from var(--my-color) …) or oklab(from …))"
+      ]
     }
   ]
 }

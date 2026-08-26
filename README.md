@@ -15,7 +15,7 @@ npx skills add equinusocio/react-authoring-skills
 | Skill | Path | Triggers when… |
 | --- | --- | --- |
 | [`authoring-react`](./skills/authoring-react) | `skills/authoring-react` | Creating, editing, refactoring, or reviewing React/TS UI (components, hooks, JSX/TSX, props) |
-| [`authoring-css`](./skills/authoring-css) | `skills/authoring-css` | Writing or changing stylesheets, CSS modules, nesting, selectors, motion, `@property` |
+| [`authoring-css`](./skills/authoring-css) | `skills/authoring-css` | Writing or changing stylesheets, CSS modules, nesting, selectors, colors, gradients, motion, `@property` |
 
 Both can apply in the same task (e.g. new component + co-located CSS).
 
@@ -91,12 +91,12 @@ Each skill is a thin **hub** (`SKILL.md`) plus **refs** the agent reads on deman
 - Prefer `data-*` (`"true"` / `"false"` strings) + `dynamicStyle: React.CSSProperties`
 - Folder: `/my-component` with `index.ts`, `my-component.tsx`, optional module CSS and subcomponents
 
-### `authoring-css` (v1.0.0)
+### `authoring-css` (v1.1.0)
 
 | File | Role |
 | --- | --- |
 | [`SKILL.md`](./skills/authoring-css/SKILL.md) | Hub: contract, router, out of scope |
-| [`authoring.md`](./skills/authoring-css/authoring.md) | Classes, nesting, Baseline, longhand, motion, `@property` |
+| [`authoring.md`](./skills/authoring-css/authoring.md) | Classes, nesting, Baseline, colors, longhand, motion, `@property` |
 
 **Highlights:**
 
@@ -104,6 +104,7 @@ Each skill is a thin **hub** (`SKILL.md`) plus **refs** the agent reads on deman
 - Module children: element name only (`.Content`), nested — no `Component_` prefix
 - Native CSS nesting; modern selectors (`:has`, `:is`, `:where`, …) when useful
 - Prefer Baseline / project browserslist; ask when target unclear
+- Hardcoded colors: OKLCH/OKLAB (esp. gradients); derive/alpha with relative colors — no `color-mix()`
 - Longhand over shorthand; comment 5+ value shorthands; no autoprefixer-redundant prefixes
 - Motion on performant props; `@property` in `*.props.css` imported from the component stylesheet
 

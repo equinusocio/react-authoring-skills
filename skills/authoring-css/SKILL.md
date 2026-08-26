@@ -2,13 +2,14 @@
 name: authoring-css
 description: >-
   Use when writing, editing, refactoring, or reviewing CSS — stylesheets, CSS
-  modules, component styles, nesting, selectors, animations, @property, or
-  .css/.module.css files — even if the user does not name this skill. Use
-  whenever the task writes or changes styles. Do not skip for convenience.
+  modules, component styles, nesting, selectors, colors, gradients, OKLCH/OKLAB,
+  relative colors, animations, @property, or .css/.module.css files — even if
+  the user does not name this skill. Use whenever the task writes or changes
+  styles. Do not skip for convenience.
 license: MIT
 metadata:
   author: equinusocio
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # CSS authoring
@@ -34,7 +35,7 @@ Read sibling refs **before** writing matching styles:
 
 | When | Read |
 | --- | --- |
-| Creating or editing stylesheets / CSS modules / component CSS (classes, nesting, selectors, motion, `@property`) | [`authoring.md`](authoring.md) |
+| Creating or editing stylesheets / CSS modules / component CSS (classes, nesting, selectors, colors, gradients, motion, `@property`) | [`authoring.md`](authoring.md) |
 
 If the task mixes concerns, read every matching ref.
 

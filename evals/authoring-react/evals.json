@@ -9,6 +9,7 @@
         "Component is a named const arrow function (not function declaration or default-only anonymous)",
         "Component is annotated with React.FC<MyPanelProps> or FC<MyPanelProps>",
         "MyPanelProps exists and extends React.ComponentPropsWithRef<'div'> (or ComponentPropsWithoutRef if ref is intentionally omitted)",
+        "Custom props on the props type have TSDoc describing them and @defaultValue matching the assigned default",
         "Props are destructured; unused props are spread onto the outer div",
         "title default is set in the destructuring parameter list"
       ]
@@ -126,6 +127,17 @@
       "expectations": [
         "Applies authoring-react skill rules by default when no consumer guidelines are found",
         "Does not block on a guidelines-choice question when none exist"
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Add AlertBanner with optional tone ('info' | 'warn', default 'info') and optional dismissible boolean (default false) on a div wrapper.",
+      "expected_output": "AlertBannerProps documents tone and dismissible with TSDoc and @defaultValue matching param-list defaults; FC const with defaults in destructuring.",
+      "expectations": [
+        "Each custom prop on the props type has a TSDoc comment that describes it",
+        "Each custom prop with a default includes @defaultValue with that default value",
+        "@defaultValue values match the defaults in the parameter destructuring list",
+        "Named const arrow component with React.FC / FC and ComponentNameProps"
       ]
     }
   ]
