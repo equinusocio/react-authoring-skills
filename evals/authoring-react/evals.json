@@ -139,6 +139,16 @@
         "@defaultValue values match the defaults in the parameter destructuring list",
         "Named const arrow component with React.FC / FC and ComponentNameProps"
       ]
+    },
+    {
+      "id": 14,
+      "prompt": "Create SpacedBox that exposes an optional padding prop whose type must match Stack's padding. StackProps is available (or Stack itself).",
+      "expected_output": "padding typed via StackProps[\"padding\"] or ComponentProps/typeof Stack — not a redeclared union or string alias.",
+      "expectations": [
+        "Does not redeclare the padding type (no hand-copied union/string)",
+        "Uses indexed access on the original props type (e.g. StackProps[\"padding\"]) and/or typeof / ComponentProps of the source component",
+        "Named const arrow component with React.FC / FC and ComponentNameProps"
+      ]
     }
   ]
 }

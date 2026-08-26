@@ -29,7 +29,16 @@ const MyComponent: React.FC<MyComponentProps> = () => (
 - Every component has a **`ComponentNameProps`** type. Export it when the component is reused elsewhere or callers need to infer the original props; otherwise export is optional.
 - Prefer props that **extend the HTML (or component) props of the outermost wrapper** — the element/component that receives the props spread.
 - Use **`ComponentPropsWithRef`** / **`ComponentPropsWithoutRef`** as appropriate. In React 19, **`ref` is a normal prop** (no `forwardRef` required for that reason alone).
-- Le proprietà devono avere sempre un ts-doc che le descrivono e il marker `@defaultValue` con il valore di default assegnato alla prop
+- Props must always have a TSDoc comment that describes them and an `@defaultValue` marker with the default value assigned to the prop
+- When a prop’s type must be inferred from another type or inherited, do not redeclare it — use the original type if you have access. Example:
+
+```tsx
+export type MyComponentProps = {
+  padding?: StackProps["padding"];
+}
+```
+
+Or inherit it from the component itself using `typeof`
 
 ```tsx
 export type MyComponentProps = React.ComponentPropsWithRef<'div'> & {
@@ -205,6 +214,7 @@ Folder and file placement: see [`filesystem.md`](filesystem.md).
 - [ ] `React.FC` / `FC` with props generic
 - [ ] `ComponentNameProps` (+ export if reuse/inference)
 - [ ] Custom props: TSDoc + `@defaultValue` matching assigned default
+- [ ] Prop types reused via indexed access / `typeof` — no redeclared copies
 - [ ] Extends `ComponentPropsWithRef` / `WithoutRef` of the outer wrapper when spreading
 - [ ] Destructure + residual spread; spread order intentional
 - [ ] Defaults in param list when possible
