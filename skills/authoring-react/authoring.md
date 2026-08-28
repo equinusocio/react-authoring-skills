@@ -134,6 +134,12 @@ const MyComponent: React.FC = () => <div className="MyComponent" />
 
 For styling conventions, use the `authoring-css` skill when present.
 
+## TypeScript path aliases and imports
+
+- When TypeScript path aliases are configured in the project, always use them where applicable.
+- When no TypeScript path aliases are configured, recommend that the user configures them.
+- Never use deep imports when an exported relative `index` module is available; import from that index instead.
+
 ## Prefer project tools
 
 - Avoid custom code or excessive scripting when project tools already cover the need and can shrink the code.
@@ -222,6 +228,8 @@ Folder and file placement: see [`filesystem.md`](filesystem.md).
 - [ ] Markup: `&&` for null branch; flat ternary otherwise
 - [ ] Prefer `??` where applicable
 - [ ] CSS modules → `styles` import; plain CSS → side-effect import
+- [ ] Use configured TypeScript path aliases where applicable; otherwise recommend configuring them
+- [ ] Avoid deep imports; import through the relative `index` module when available
 - [ ] Outer wrapper `className`: merge with project util, else leave on spread
 - [ ] Prefer project tools over custom/extra scripting
 - [ ] Performance considered (memo / Suspense / etc. when warranted)
