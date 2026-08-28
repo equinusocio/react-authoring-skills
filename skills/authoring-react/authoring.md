@@ -175,6 +175,7 @@ const MyComponent: React.FC<MyComponentProps> = ({
 
 - Prefer controlling CSS via **custom HTML attributes** (`data-*`) and **`dynamicStyle`**.
 - When the component manipulates `style`: destructure it from props, build `dynamicStyle` as `React.CSSProperties`, pass it to the element.
+- **Never** put raw CSS properties (e.g. `color`, `padding`, `margin`, `transform`) in `dynamicStyle` or other dynamic inline styles — always set **CSS custom properties** (`--*`) and consume them in CSS with `var()`.
 - Decide `useMemo` (or not) when inline style identity would cause excess re-renders.
 - Place `...style` first or last deliberately (defaults vs consumer overwrite).
 
@@ -225,5 +226,5 @@ Folder and file placement: see [`filesystem.md`](filesystem.md).
 - [ ] Prefer project tools over custom/extra scripting
 - [ ] Performance considered (memo / Suspense / etc. when warranted)
 - [ ] No inline callbacks in JSX — named handlers in body
-- [ ] Prefer `data-*` + `dynamicStyle: React.CSSProperties` (+ memo when needed)
+- [ ] Prefer `data-*` + `dynamicStyle: React.CSSProperties` (+ memo when needed); `dynamicStyle` sets only `--*` custom props, never raw CSS properties
 - [ ] `data-*` values are `"true"` / `"false"` strings, not booleans
