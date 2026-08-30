@@ -24,12 +24,12 @@
     },
     {
       "id": 3,
-      "prompt": "Replace vendor-prefixed properties and shorthands in card.css: drop prefixes autoprefixer can add; keep only those it cannot; prefer longhand; comment any shorthand with 5+ values.",
-      "expected_output": "No unnecessary -webkit/-moz prefixes; longhand preferred; multi-value shorthand annotated with a comment explaining each value.",
+      "prompt": "Clean card.css: drop vendor prefixes autoprefixer can add; keep only those it cannot. Keep simple shorthands (inset: 0, border, short radius). For an elliptical border-radius that needs 8 values, rewrite as longhand corner radii instead of one giant shorthand.",
+      "expected_output": "No unnecessary -webkit/-moz prefixes; simple shorthands kept; complex >5-value shorthand expanded to longhand.",
       "expectations": [
         "No vendor prefixes except those autoprefixer cannot supply (e.g. user-select cases called out)",
-        "Longhand preferred over shorthand where practical",
-        "Shorthand with 5+ values includes an explanatory comment"
+        "Keeps simple shorthands (e.g. inset: 0, border, ≤5-value radius) — does not expand them to longhand",
+        "When a shorthand would need more than 5 values, prefers longhand instead"
       ]
     },
     {

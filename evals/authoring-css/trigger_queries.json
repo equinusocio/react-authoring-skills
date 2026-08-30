@@ -32,7 +32,7 @@
     "should_trigger": true
   },
   {
-    "query": "Replace shorthand margin with longhand in card.css and comment any long shorthands.",
+    "query": "Rewrite the 8-value border-radius in card.css as longhand corner radii; keep inset: 0 and short border shorthands.",
     "should_trigger": true
   },
   {

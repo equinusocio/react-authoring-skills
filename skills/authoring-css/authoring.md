@@ -72,13 +72,23 @@ Example: `stack.tsx` (`const Stack = () => {}`) → root class `.Stack`.
 
 ## Longhand vs shorthand
 
-- Prefer **longhand** over shorthand where practical.
-- Avoid shorthand with **5+ values** but if needed: add a comment explaining what those values are.
+- Prefer **shorthand** for compact declarations with **≤5 values** — e.g. `inset: 0`, `border`, `margin`, `padding`, simple `border-radius`.
+- Prefer **longhand** only when the equivalent shorthand would need **more than 5 values** (e.g. elliptical `border-radius` with 8 values → corner longhands; multi-field `animation` → `animation-*`).
+- Do **not** expand simple shorthands into longhand for “consistency”.
 
 ```css
 .Card {
-  /* name | duration | easing | delay | iteration | direction | fill-mode */
-  animation: fade-in 200ms ease-out 0s 1 normal forwards;
+  inset: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* 8-value radius → longhand, not one giant shorthand */
+.Blob {
+  border-top-left-radius: 10px 5px;
+  border-top-right-radius: 20px 10px;
+  border-bottom-right-radius: 30px 15px;
+  border-bottom-left-radius: 40px 20px;
 }
 ```
 
@@ -130,7 +140,7 @@ color: oklch(from var(--my-color) l calc(c + 0.2) h / 20%);
 - [ ] Modern selectors (`:has`, `:is`, `:where`, …) when useful
 - [ ] Native nesting always
 - [ ] No prefixes autoprefixer can add
-- [ ] Longhand preferred; 5+ value shorthands commented
+- [ ] Shorthand for ≤5 values; longhand when shorthand would need >5 values
 - [ ] No useless `min-*-size: 0`
 - [ ] Hardcoded colors: OKLCH/OKLAB (esp. gradients); derive/alpha via relative colors — no `color-mix()`
 - [ ] Motion on performant props when possible; `@property` + `*.props.css` when animating custom props; `var()` defaults on root class

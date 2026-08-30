@@ -9,7 +9,7 @@ description: >-
 license: MIT
 metadata:
   author: equinusocio
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # CSS authoring

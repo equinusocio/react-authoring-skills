@@ -91,12 +91,12 @@ Each skill is a thin **hub** (`SKILL.md`) plus **refs** the agent reads on deman
 - Prefer `data-*` (`"true"` / `"false"` strings) + `dynamicStyle: React.CSSProperties`
 - Folder: `/my-component` with `index.ts`, `my-component.tsx`, optional module CSS and subcomponents
 
-### `authoring-css` (v1.1.0)
+### `authoring-css` (v1.2.0)
 
 | File | Role |
 | --- | --- |
 | [`SKILL.md`](./skills/authoring-css/SKILL.md) | Hub: contract, router, out of scope |
-| [`authoring.md`](./skills/authoring-css/authoring.md) | Classes, nesting, Baseline, colors, longhand, motion, `@property` |
+| [`authoring.md`](./skills/authoring-css/authoring.md) | Classes, nesting, Baseline, colors, shorthand/longhand, motion, `@property` |
 
 **Highlights:**
 
@@ -105,7 +105,7 @@ Each skill is a thin **hub** (`SKILL.md`) plus **refs** the agent reads on deman
 - Native CSS nesting; modern selectors (`:has`, `:is`, `:where`, …) when useful
 - Prefer Baseline / project browserslist; ask when target unclear
 - Hardcoded colors: OKLCH/OKLAB (esp. gradients); derive/alpha with relative colors — no `color-mix()`
-- Longhand over shorthand; comment 5+ value shorthands; no autoprefixer-redundant prefixes
+- Prefer shorthand (≤5 values); longhand only when shorthand would need >5 values; no autoprefixer-redundant prefixes
 - Motion on performant props; `@property` in `*.props.css` imported from the component stylesheet
 
 ## Repo layout
